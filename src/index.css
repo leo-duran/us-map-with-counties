@@ -1,0 +1,151 @@
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #0c0c0e;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#root {
+  width: 100%;
+}
+
+.map-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: radial-gradient(circle at center, #1a1a1f 0%, #0c0c0e 100%);
+}
+
+.header {
+  position: absolute;
+  top: 2rem;
+  left: 3rem;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, #a5a5a5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.header p {
+  margin: 0.5rem 0 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+.controls {
+  position: absolute;
+  bottom: 2rem;
+  right: 3rem;
+  z-index: 10;
+}
+
+.reset-button {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reset-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.state {
+  fill: #1e1e24;
+  stroke: #333;
+  stroke-width: 0.5;
+  transition: fill 0.3s ease, stroke 0.3s ease;
+  cursor: pointer;
+}
+
+.state:hover {
+  fill: #2a2a35;
+  stroke: #444;
+}
+
+.state.selected {
+  fill: #1e1e24;
+  cursor: default;
+}
+
+.county {
+  fill: #25252b;
+  stroke: #444;
+  stroke-width: 0.2;
+  transition: fill 0.3s ease;
+}
+
+.county:hover {
+  fill: #3a3a45;
+}
+
+.mesh {
+  fill: none;
+  stroke: #333;
+  stroke-width: 0.5;
+  pointer-events: none;
+}
+
+.county-mesh {
+  fill: none;
+  stroke: #444;
+  stroke-width: 0.15;
+  pointer-events: none;
+}
+
+.loading {
+  font-size: 1.2rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.875rem;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
